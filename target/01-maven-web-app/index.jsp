@@ -1,6 +1,6 @@
 <html>
 <body>
-<h1><font color='red'>Welcome to Ashok IT  sumit changed for practice please god shiva help me..!!<font></h1>
+<h1><font color='red'>Welcome to Ashok IT  sumit master..!!<font></h1>
   
   <h1> Software Training Institute fast learn </h1>
   
