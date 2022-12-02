@@ -10,10 +10,15 @@ pipeline{
                 url: 'https://github.com/ashokitschool/maven_web_app_jenkins_pipeline.git'
             }
          }        
-       stage('Build'){
+        stage('Build'){
             steps{
                 sh 'mvn clean package'
             }
-         }
+         }   
+        stage('deploy'){
+            steps{
+                deploy adapters: [tomcat9(credentialsId: 'tomcatserver', path: '', url: '')], contextPath: 'http://172.31.35.219:8080', war: '**/*.war'
+            }
+         }      
     }
 }
