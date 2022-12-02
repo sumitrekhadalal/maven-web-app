@@ -10,6 +10,14 @@ pipeline{
                 url: 'https://github.com/ashokitschool/maven_web_app_jenkins_pipeline.git'
           
 	    }    
-         }
-      }		    
+        }
+	    
+	     stages{
+       stage('GetCode'){
+	       steps{
+		       sh. 'mvn clean package'
+	       
+	      }
+	   }
+        }	  
    }
