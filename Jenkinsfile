@@ -12,12 +12,11 @@ pipeline{
 	    }    
         }
 	    
-	     stages{
-       stage('build'){
-	       steps{
-		       sh 'mvn clean package'
-	       
-	      }
-	   }
-        }	  
+     stages{
+        stage('Build'){
+            steps{
+                sh 'mvn clean package'
+            }
+         }
+       }	  
    }
