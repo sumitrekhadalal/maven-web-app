@@ -17,8 +17,11 @@ pipeline{
          }
 	    stage('nexus'){
             steps{
-                nexusArtifactUploader credentialsId: 'nexus', groupId: 'mavan2', nexusUrl: '13.233.154.144:8081', nexusVersion: 'nexus2', protocol: 'http', repository: 'sumit-1st-artifact', version: ''
-            }
+                  nexusArtifactUploader artifacts: [[artifactId: 'webapp-any',
+		classifier: '', file: '/var/lib/jenkins/workspace/new1/target/01-maven-web-app.war',
+		type: 'war']], credentialsId: 'nexus', groupId: 'webapp-any',
+		nexusUrl: '65.1.95.245:8081/#browse/browse:sumit-1st-artifact',
+		nexusVersion: 'nexus3', protocol: 'http', repository: 'sumit-1st-artifact', version: '1.0-SNAPSHOT'            }
          }
 	    stage('deploy'){
 		    steps{
