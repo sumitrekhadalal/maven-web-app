@@ -16,13 +16,7 @@ pipeline{
             }
          
 	}
-	    stage('deploy'){
-               steps{
-                deploy adapters: [tomcat8(credentialsId: 'tom', path: '', url: 'http://44.200.152.61:8080/')], contextPath: '/', war: '**/*.war'
-		       
-	       }
-	  }
-        stage('nexus'){
+	     stage('nexus'){
                steps{
                 nexusArtifactUploader artifacts: [[artifactId: 'maven-web-app', classifier: '',
 						   file: '01-maven-web-app.war', type: 'maven-web-app']], credentialsId: 'nexa',
@@ -32,5 +26,12 @@ pipeline{
                }
 
             }
+	    stage('deploy'){
+               steps{
+                deploy adapters: [tomcat8(credentialsId: 'tom', path: '', url: 'http://44.200.152.61:8080/')], contextPath: '/', war: '**/*.war'
+		       
+	       }
+	  }
+       
         }
 }
