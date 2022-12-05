@@ -18,8 +18,8 @@ pipeline{
 	}
 	     stage('nexus'){
                steps{
-               nexusArtifactUploader artifacts: [[artifactId: 'maven-web-app', classifier: '', file: '01-maven-web-app.war', type: 'war']], credentialsId: 'nexa', groupId: 'web-app', nexusUrl: '44.204.109.179:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-snapshot', version: '1.0-SNAPSHOT'
-               }
+nexusArtifactUploader artifacts: [[artifactId: 'maven-web-app', classifier: '', file: '01-maven-web-app.war', type: 'war']], credentialsId: 'nexa', groupId: 'web-app', nexusUrl: '44.204.109.179:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-snapshots', version: '1.0-SNAPSHOT'
+	       }
 
             }
 	    stage('deploy'){
